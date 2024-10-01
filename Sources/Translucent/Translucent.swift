@@ -16,8 +16,8 @@ public class Wallpaper: NSObject {
             
             let fileName: String
             if majorVersion >= 18 {
-                fileName = "mapping-ios-18"
-                print("Loading mapping-ios-18.json")
+                fileName = "mappings-ios-18"
+                print("Loading mappings-ios-18.json")
             } else {
                 fileName = "mappings"
                 print("Loading mappings.json")
