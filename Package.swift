@@ -17,6 +17,7 @@ let package = Package(
             dependencies: ["DeviceKit"],
             resources: [
                 .process("mappings.json")
+                .process("mappings-ios-18.json")
             ]),
         .testTarget(
             name: "TranslucentTests",
