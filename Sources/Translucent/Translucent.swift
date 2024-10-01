@@ -10,8 +10,25 @@ public class Wallpaper: NSObject {
     public init(_ img: UIImage) {
         self.wallpaperImage = img
         do{
+
+            let currentVersion = UIDevice.current.systemVersion
+            let majorVersion = Int(currentVersion.split(separator: ".").first!) ?? 0
+            
+            let fileName: String
+            if majorVersion >= 18 {
+                fileName = "mapping-ios-18"
+                print("Loading mapping-ios-18.json")
+            } else {
+                fileName = "mappings"
+                print("Loading mappings.json")
+            }
+
             //  load mappings into code. mapping file is based on https://gist.github.com/CyberBatMan2077/8ac39f169066a4a20320ee4572e1eafa
-            let mappings = Bundle.module.url(forResource: "mappings", withExtension: "json")!
+            guard let mappings = Bundle.module.url(forResource: fileName, withExtension: "json") else {
+                fatalError("Mapping file not found.")
+            }
+            
+            
             let jsonData = try Data(contentsOf: mappings)
             let jsonDictionary = try JSONDecoder().decode([String: Phone].self, from: jsonData)
             phoneMappings = jsonDictionary
