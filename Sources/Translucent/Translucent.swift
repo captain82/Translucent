@@ -42,7 +42,7 @@ public class Wallpaper: NSObject {
         fatalError()
     }
     
-    public func widgetBackground(for position: WidgetCropPosition) -> UIImage? {
+    public func widgetBackground(for position: WidgetCropPosition, widgetType: Int) -> UIImage? {
         let height = Int(wallpaperImage.size.height)
         
         var heightKey = String(height)
@@ -62,73 +62,77 @@ public class Wallpaper: NSObject {
         var crop_y:CGFloat = 0
         var crop_w:CGFloat = 0
         var crop_h:CGFloat = 0
+
+        // Select the appropriate phone properties based on the widgetType
+        let selectedPhone = widgetType == 1 ? phone.text : phone.notext
+
                 
         switch position{
         case .smallTopLeft:
-            crop_w = phone.small
-            crop_h = phone.small
-            crop_x = phone.left
-            crop_y = phone.top
+            crop_w = selectedPhone.small
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.top
             
         case .smallTopRight:
-            crop_w = phone.small
-            crop_h = phone.small
-            crop_x = phone.right
-            crop_y = phone.top
+            crop_w = selectedPhone.small
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.right
+            crop_y = selectedPhone.top
             
         case .smallCenterLeft:
-            crop_w = phone.small
-            crop_h = phone.small
-            crop_x = phone.left
-            crop_y = phone.middle
+            crop_w = selectedPhone.small
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.middle
             
         case .smallCenterRight:
-            crop_w = phone.small
-            crop_h = phone.small
-            crop_x = phone.right
-            crop_y = phone.middle
+            crop_w = selectedPhone.small
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.right
+            crop_y = selectedPhone.middle
             
         case .smallBottomLeft:
-            crop_w = phone.small
-            crop_h = phone.small
-            crop_x = phone.left
-            crop_y = phone.bottom
+            crop_w = selectedPhone.small
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.bottom
             
         case .smallBottomRight:
-            crop_w = phone.small
-            crop_h = phone.small
-            crop_x = phone.right
-            crop_y = phone.bottom
+            crop_w = selectedPhone.small
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.right
+            crop_y = selectedPhone.bottom
             
         case .mediumTop:
-            crop_w = phone.medium
-            crop_h = phone.small
-            crop_x = phone.left
-            crop_y = phone.top
+            crop_w = selectedPhone.medium
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.top
             
         case .mediumCenter:
-            crop_w = phone.medium
-            crop_h = phone.small
-            crop_x = phone.left
-            crop_y = phone.middle
+            crop_w = selectedPhone.medium
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.middle
             
         case .mediumBottom:
-            crop_w = phone.medium
-            crop_h = phone.small
-            crop_x = phone.left
-            crop_y = phone.bottom
+            crop_w = selectedPhone.medium
+            crop_h = selectedPhone.small
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.bottom
             
         case .largeTop:
-            crop_w = phone.medium
-            crop_h = phone.large
-            crop_x = phone.left
-            crop_y = phone.top
+            crop_w = selectedPhone.medium
+            crop_h = selectedPhone.large
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.top
             
         case .largeBottom:
-            crop_w = phone.medium
-            crop_h = phone.large
-            crop_x = phone.left
-            crop_y = phone.middle
+            crop_w = selectedPhone.medium
+            crop_h = selectedPhone.large
+            crop_x = selectedPhone.left
+            crop_y = selectedPhone.middle
         }
         
         let crop = wallpaperImage.cgImage?.cropping(to: CGRect(x: crop_x, y: crop_y, width: crop_w, height: crop_h))
