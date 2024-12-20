@@ -75,7 +75,16 @@ public class Wallpaper: NSObject {
             selectedPhone = widgetType == 1 ? phone.text : phone.notext
         } else {
             // For older iOS versions, directly access the phone properties
-            selectedPhone = phone
+            selectedPhone = PhoneProperties(
+            small: phone.small,
+            medium: phone.medium,
+            large: phone.large,
+            left: phone.left,
+            right: phone.right,
+            top: phone.top,
+            middle: phone.middle,
+            bottom: phone.bottom
+        )
         }
 
                 
