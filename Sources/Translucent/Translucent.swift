@@ -6,6 +6,9 @@ public class Wallpaper: NSObject {
     private let wallpaperImage: UIImage
     
     private var phoneMappings: [String: Any]
+
+    private var isIOS18OrHigher: Bool
+
     
     public init(_ img: UIImage) {
         self.wallpaperImage = img
@@ -13,6 +16,7 @@ public class Wallpaper: NSObject {
 
             let currentVersion = UIDevice.current.systemVersion
             let majorVersion = Int(currentVersion.split(separator: ".").first!) ?? 0
+             self.isIOS18OrHigher = majorVersion >= 18
             
             let fileName: String
             if majorVersion >= 18 {
@@ -64,7 +68,15 @@ public class Wallpaper: NSObject {
         var crop_h:CGFloat = 0
 
         // Select the appropriate phone properties based on the widgetType
-        let selectedPhone = widgetType == 1 ? phone.text : phone.notext
+       let selectedPhone: PhoneProperties
+        
+        if isIOS18OrHigher {
+            // For iOS 18 or higher, use the text or notext properties
+            selectedPhone = widgetType == 1 ? phone.text : phone.notext
+        } else {
+            // For older iOS versions, directly access the phone properties
+            selectedPhone = phone
+        }
 
                 
         switch position{
@@ -142,14 +154,26 @@ public class Wallpaper: NSObject {
             
     }
 }
-
-struct Phone: Codable{
+struct Phone: Codable {
     var small:  CGFloat
     var medium: CGFloat
     var large:  CGFloat
     var left:   CGFloat
     var right:  CGFloat
     var top:    CGFloat
+    var middle: CGFloat
+    var bottom: CGFloat
+    var text: PhoneProperties  // For iOS 18 or higher
+    var notext: PhoneProperties  // For iOS 18 or higher
+}
+
+struct PhoneProperties: Codable {
+    var small: CGFloat
+    var medium: CGFloat
+    var large: CGFloat
+    var left: CGFloat
+    var right: CGFloat
+    var top: CGFloat
     var middle: CGFloat
     var bottom: CGFloat
 }
