@@ -42,7 +42,7 @@ public class Wallpaper: NSObject {
         fatalError()
     }
     
-    public func widgetBackground(for position: WidgetCropPosition, widgetType: Int) -> UIImage? {
+    public func widgetBackground(for position: WidgetCropPosition, widgetType: Int = 1) -> UIImage? {
         let height = Int(wallpaperImage.size.height)
         
         var heightKey = String(height)
