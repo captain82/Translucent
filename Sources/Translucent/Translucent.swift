@@ -34,7 +34,7 @@ public class Wallpaper: NSObject {
             
             
             let jsonData = try Data(contentsOf: mappings)
-            let jsonDictionary = try JSONDecoder().decode([String: Phone].self, from: jsonData)
+            let jsonDictionary = try JSONDecoder().decode([String: PhoneModel].self, from: jsonData)
             phoneMappings = jsonDictionary
 
         } catch {
@@ -57,7 +57,7 @@ public class Wallpaper: NSObject {
             heightKey += "x"
         }
         
-        guard let phone = phoneMappings["\(heightKey)"] as? Phone else {
+        guard let phone = phoneMappings["\(heightKey)"] as? PhoneModel else {
             print("It looks like you selected an image that isn't an iPhone screenshot, or your iPhone is not supported. Try again with a different image.")
             return nil
         }
@@ -68,7 +68,7 @@ public class Wallpaper: NSObject {
         var crop_h:CGFloat = 0
 
         // Select the appropriate phone properties based on the widgetType
-       let selectedPhone: PhoneProperties
+        let selectedPhone: Phone
         
         if isIOS18OrHigher {
             // For iOS 18 or higher, use the text or notext properties
@@ -76,20 +76,10 @@ public class Wallpaper: NSObject {
             print("iOS 18 or higher")
             print(selectedPhone.small)
         } else {
+            selectedPhone = phone.text
             print("Lower than iOS 18")
-            // For older iOS versions, directly access the phone properties
-            selectedPhone = PhoneProperties(
-            small: phone.small,
-            medium: phone.medium,
-            large: phone.large,
-            left: phone.left,
-            right: phone.right,
-            top: phone.top,
-            middle: phone.middle,
-            bottom: phone.bottom
-        )
         }
-
+          
                 
         switch position{
         case .smallTopLeft:
@@ -175,17 +165,10 @@ struct Phone: Codable {
     var top:    CGFloat
     var middle: CGFloat
     var bottom: CGFloat
-    var text: PhoneProperties  // For iOS 18 or higher
-    var notext: PhoneProperties  // For iOS 18 or higher
 }
 
-struct PhoneProperties: Codable {
-    var small: CGFloat
-    var medium: CGFloat
-    var large: CGFloat
-    var left: CGFloat
-    var right: CGFloat
-    var top: CGFloat
-    var middle: CGFloat
-    var bottom: CGFloat
+struct PhoneModel: Codable {
+    var text: Phone
+    var notext: Phone
 }
+
