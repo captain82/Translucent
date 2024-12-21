@@ -73,6 +73,8 @@ public class Wallpaper: NSObject {
         if isIOS18OrHigher {
             // For iOS 18 or higher, use the text or notext properties
             selectedPhone = widgetType == 1 ? phone.text : phone.notext
+            print("iOS 18 or higher")
+            print(selectedPhone.small)
         } else {
             // For older iOS versions, directly access the phone properties
             selectedPhone = PhoneProperties(
