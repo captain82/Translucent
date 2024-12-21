@@ -76,6 +76,7 @@ public class Wallpaper: NSObject {
             print("iOS 18 or higher")
             print(selectedPhone.small)
         } else {
+            print("Lower than iOS 18")
             // For older iOS versions, directly access the phone properties
             selectedPhone = PhoneProperties(
             small: phone.small,
