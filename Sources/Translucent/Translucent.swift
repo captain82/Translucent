@@ -72,7 +72,7 @@ public class Wallpaper: NSObject {
         
         if isIOS18OrHigher {
             // For iOS 18 or higher, use the text or notext properties
-            selectedPhone = widgetType == 1 ? phone.text : phone.notext
+            selectedPhone = widgetType == 1 ? phone.text : (phone.notext ?? phone.text)
             print("iOS 18 or higher")
             print(selectedPhone.small)
         } else {
@@ -169,6 +169,6 @@ struct Phone: Codable {
 
 struct PhoneModel: Codable {
     var text: Phone
-    var notext: Phone
+    var notext: Phone?
 }
 
