@@ -41,6 +41,17 @@ public class Wallpaper: NSObject {
             fatalError("unexpected resource..")
         }
     }
+
+    public func isIphoneScreenshot(using image: UIImage) -> Bool {
+        let height = Int(image.size.height)
+        
+        guard let _ = phoneMappings["\(height)"] as? PhoneModel else {
+            print("It looks like you selected an image that isn't an iPhone screenshot, or your iPhone is not supported. Try again with a different image.")
+            return false
+        }
+        
+        return true
+    }
     
     required override init() {
         fatalError()
