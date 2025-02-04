@@ -42,7 +42,7 @@ public class Wallpaper: NSObject {
         }
     }
 
-    public func isIphoneScreenshot(_ image: UIImage) -> Bool {
+    public func isIphoneScreenshot() -> Bool {
         let height = Int(wallpaperImage.size.height)
         
         guard let _ = phoneMappings["\(height)"] as? PhoneModel else {
