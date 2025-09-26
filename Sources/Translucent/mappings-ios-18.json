@@ -67,24 +67,24 @@
   },
   "2556": {
     "text": {
-      "small": 488,
-      "medium": 1107,
-      "large": 1080,
-      "left": 73,
-      "right": 619,
+      "small": 474,
+      "medium": 1017,
+      "large": 1062,
+      "left": 81,
+      "right": 624,
       "top": 240,
-      "middle": 832,
-      "bottom": 1424
+      "middle": 828,
+      "bottom": 1416
     },
     "notext": {
-      "small": 504,
-      "medium": 1124,
-      "large": 1062,
-      "left": 60,
-      "right": 620,
-      "top": 248,
-      "middle": 806,
-      "bottom": 1367
+      "small": 495,
+      "medium": 1047,
+      "large": 1047,
+      "left": 66,
+      "right": 618,
+      "top": 243,
+      "middle": 795,
+      "bottom": 1347
     }
   },
   "2778": {
