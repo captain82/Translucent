@@ -208,4 +208,3 @@ struct PhoneModel: Codable {
     var text: Phone
     var notext: Phone?
 }
-
