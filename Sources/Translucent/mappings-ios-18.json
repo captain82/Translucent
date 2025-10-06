@@ -1,24 +1,24 @@
 {
   "2622": {
     "text": {
-      "small": 486,
-      "medium": 1032,
-      "large": 1098,
-      "left": 87,
-      "right": 633,
-      "top": 261,
+      "small": 493,
+      "medium": 1049,
+      "large": 1095,
+      "left": 79,
+      "right": 635,
+      "top": 270,
       "middle": 872,
-      "bottom": 1485
+      "bottom": 1474
     },
     "notext": {
-      "small": 495,
-      "medium": 1037,
-      "large": 1035,
-      "left": 84,
-      "right": 626,
+      "small": 509,
+      "medium": 1079,
+      "large": 1077,
+      "left": 64,
+      "right": 634,
       "top": 270,
-      "middle": 810,
-      "bottom": 1350
+      "middle": 838,
+      "bottom": 1406
     }
   },
   "2868": {
