@@ -1,4 +1,26 @@
 {
+  "2736": {
+    "text": {
+      "small": 518,
+      "medium": 1100,
+      "large": 1146,
+      "left": 80,
+      "right": 662,
+      "top": 288,
+      "middle": 806,
+      "bottom": 1544
+    },
+    "notext": {
+      "small": 534,
+      "medium": 1130,
+      "large": 1128,
+      "left": 65,
+      "right": 661,
+      "top": 288,
+      "middle": 822,
+      "bottom": 1476
+    }
+  },
   "2622": {
     "text": {
       "small": 493,
