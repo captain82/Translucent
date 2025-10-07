@@ -59,6 +59,9 @@ public class Wallpaper: NSObject {
     
     public func widgetBackground(for position: WidgetCropPosition, widgetType: Int = 1) -> UIImage? {
         let height = Int(wallpaperImage.size.height)
+
+        print("📏 Wallpaper image height: \(height)")
+        print("📱 Detected device: \(Device.current)")
         
         var heightKey = String(height)
         //  Extra setup needed for 2436-sized phones, i.e. for 13 mini, 12 mini / 11 Pro, XS, X
