@@ -47,16 +47,21 @@ public class Wallpaper: NSObject {
 
         var heightKey = String(height)
         //  Extra setup needed for 2436-sized phones, i.e. for 13 mini, 12 mini / 11 Pro, XS, X
-        if Device.current == .iPhone13Mini || Device.current == .iPhone12Mini{
-            heightKey += "mini"
-        } else if Device.current == .iPhoneX || Device.current == .iPhoneXS || Device.current == .iPhone11Pro{
-            heightKey += "x"
-        }
+       let device = Device.current
+       let realModel: Device = device.isSimulator ? (device.simulatorModel ?? device) : device
+
+
+       if realModel.isOneOf([.iPhone13Mini, .iPhone12Mini]) {
+          heightKey += "mini"
+       } else if realModel.isOneOf([.iPhoneX, .iPhoneXS, .iPhone11Pro]) {
+          heightKey += "x"
+       }
 
        // Debug logs
     print("📏 Wallpaper image height: \(height)")
-    print("📱 Detected device: \(Device.current)")
-    print("🔑 Computed heightKey: \(heightKey)")
+print("📱 Detected device: \(device)")              // e.g. simulator(iPhone13Mini)
+print("🧭 Using model: \(realModel)")               // e.g. iPhone13Mini
+print("🔑 Computed heightKey: \(heightKey)")
         
         
         guard let _ = phoneMappings["\(heightKey)"] as? PhoneModel else {
