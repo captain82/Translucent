@@ -306,5 +306,27 @@
       "middle": 708,
       "bottom": 1223
     }
+  },
+  "2436": {
+    "text": {
+      "small": 477,
+      "medium": 1001,
+      "large": 1047,
+      "left": 62,
+      "right": 586,
+      "top": 183,
+      "middle": 753,
+      "bottom": 1323
+    },
+    "notext": {
+      "small": 493,
+      "medium": 1031,
+      "large": 1029,
+      "left": 47,
+      "right": 585,
+      "top": 183,
+      "middle": 719,
+      "bottom": 1255
+    }
   }
 }
