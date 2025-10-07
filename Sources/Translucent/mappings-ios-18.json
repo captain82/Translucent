@@ -284,5 +284,27 @@
       "middle": 740,
       "bottom": 1280
     }
+  },
+  "2340mini": {
+    "text": {
+      "small": 459,
+      "medium": 962,
+      "large": 1006,
+      "left": 59,
+      "right": 562,
+      "top": 193,
+      "middle": 740,
+      "bottom": 1288
+    },
+    "notext": {
+      "small": 474,
+      "medium": 990,
+      "large": 989,
+      "left": 45,
+      "right": 561,
+      "top": 193,
+      "middle": 708,
+      "bottom": 1223
+    }
   }
 }
